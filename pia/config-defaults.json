@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "mpd": {
+    "server": "localhost"
+  },
+  "calendar": {
+    "serverURL": "http://localhost/remote.php/dav",
+    "username": null,
+    "password": null
+  },
+  "hue": {
+    "hostname": null,
+    "auth": null
+  },
+  "homeLocation": {
+    "city": null
+  }
+}

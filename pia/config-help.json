@@ -1,0 +1,21 @@
+{
+  "language": "Language for speech input and output. 2-letter ISO language code.",
+  "mpd": {
+    "server": "Hostname of the MPD server on your local network",
+    "port": "Port number of the MPD server on your local network"
+  },
+  "calendar": {
+    "serverURL": "The CalDAV URL. For NextCloud/ownCloud, log in with a browser, go to the [Calendar] app, [Settings] at the bottom left, and copy the [Copy the primary CalDAV URL]",
+    "username": "Your username on the CalDAV/NextCloud/ownCloud server",
+    "password": "Your password"
+  },
+  "hue": {
+    "hostname": "The IP address or hostname of your Hue Bridge on your local network",
+    "auth": "The authentication credential to your Hue Bridge. This is effectively a password."
+  },
+  "homeLocation": {
+    "city": "The city where this device is. Needed for weather, navigation, restaurant recommendations etc.",
+    "lat": "The GPS latitude coordinate where this device is",
+    "lon": "The GPS longitude coordinate where this device is"
+  }
+}

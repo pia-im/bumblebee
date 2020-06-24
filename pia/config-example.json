@@ -1,0 +1,20 @@
+{
+  "language": "en",
+  "mpd": {
+    "server": "mpd"
+  },
+  "calendar": {
+    "serverURL": "https://nextcloud.example.com/remote.php/dav",
+    "username": "fred",
+    "password": "wilma"
+  },
+  "hue": {
+    "hostname": "192.168.1.300",
+    "auth": "secret"
+  },
+  "homeLocation": {
+    "city": "Wiesbaden",
+    "lat": 50.06,
+    "lon": 8.245
+  }
+}
