@@ -1,13 +1,13 @@
 {
-  "name": "hey_edison-assistant",
-  "version": "0.0.1",
+  "name": "helloworld",
+  "version": "1.0.0",
   "description": "",
-  "main": "start.js",
+  "main": "helloworld.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "jaxcore-bumblebee": "0.0.4"
   }

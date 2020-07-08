@@ -1,6 +1,6 @@
 ![screenshot](assets/logo.png)
 
-### JavaScript Voice Application Platform
+### JavaScript Voice Application Framework
 
 Write your own voice apps and assistants with an easy-to-learn JavaScript API!
 
@@ -37,18 +37,93 @@ systems and build upon eachother to create larger and smarter voice applications
 By associating a voice app with a hotword, your app becomes a voice assistant
 that can be called upon at any time.
 
-## Install Bumblebee
+## Installation
 
-First release coming soon:
+### Requirements
 
-[https://github.com/jaxcore/bumblebee/releases](https://github.com/jaxcore/bumblebee/releases)
+The computing resources required to run Bumblebee are much larger than a typical application.
+
+- Disk Space: 1.9 GB of space is required for installation
+	- Bumblebee: ~450 MB
+	- DeepSpeech: ~1.4 GB
+- CPU's with AVX support are [required](https://github.com/tensorflow/tensorflow/issues/19584), GPU may be utilized if available
+- RAM usage will fluctuate ~350 MB (or higher)
+
+### Desktop Application
+
+It is recommended to install the packaged release version.
+
+- [releases](https://github.com/jaxcore/bumblebee-electron-app/releases)
+
+To install the development version of Bumblebee from the source files, see:
+
+- [developer install](https://github.com/jaxcore/bumblebee-electron-app/blob/master/INSTALL.md)
+
+After installation, the first time Bumblebee is run it will prompt to download the DeepSpeech [pre-trained English model](https://github.com/mozilla/DeepSpeech/releases) files (1.4 GB disk space required).
+
+When installed successfully and with the microphone and speakers turned on, the console will react in real-time to the audio it hears.  Test the that speech-to-text is operational before proceeding.
 
 ![screenshot](assets/screenshot.png)
 
-#### (Optional) Developer Installation
-
-To install Bumblebee from source code, see the [source code INSTALL](https://github.com/jaxcore/bumblebee-electron-app).
-
 ## Hello World
 
-todo...
+To get started, create the most simple Bumblebee app possible, a "Hello World" voice application.
+
+Create a new directory and NPM project:
+
+```
+mkdir helloworld
+cd helloworld
+npm init
+npm install jaxcore-bumblebee
+```
+
+Create a new file named `helloworld.js`:
+
+```
+const Bumblebee = require('jaxcore-bumblebee');
+
+class HelloWorldApp extends Bumblebee.Application {
+	constructor() {
+		super(...arguments);
+	}
+
+	async loop() {
+		this.console('Say "Hello World"');
+
+		let recognition = await this.recognize();
+		this.console(recognition);
+
+		if (recognition.text === 'hello world') {
+			await this.playSound('okay');
+			await this.say('Hello World');
+		}
+		else {
+			await this.playSound('error');
+		}
+	}
+}
+
+Bumblebee.connectApplication(HelloWorldApp, {
+	name: "Hello World",
+	autoStart: true
+});
+```
+
+Run the voice app:
+
+```
+node helloworld.js
+```
+
+With the speakers and microphone turned on, you will be able to talk to this application and listen to it's responses.  It doesn't do very much yet, if it hears you say "hello world' it will respond by making a beep sound and also saying "hello world".
+
+This program will run continuously until the NodeJS script is closed using `Command+C` or `Control+C` and it can be started and stopped at any time.
+
+## Documentation (Coming Soon)
+
+This is a brand new project with much more to come.
+
+There are some additional [examples](https://github.com/jaxcore/bumblebee/tree/master/examples) to try and many more are in the works.
+
+Use github's "watch" feature to stay tuned for updates!
